@@ -13,7 +13,7 @@ DEFAULT_AP = 4.0  # daily geomagnetic Ap index
 
 def atm_density_drag_torque(
     altitude_km,
-    velocity_m_per_s_eci,
+    velocity_m_per_s,
     ram_area_m2,
     center_of_pressure_m,
     center_of_mass_m,
@@ -30,7 +30,7 @@ def atm_density_drag_torque(
 
     Inputs
     altitude_km          (geodetic)
-    velocity_m_per_s_eci (relative to atmosphere)
+    velocity_m_per_s     (relative to atmosphere)
     ram_area_m2
     center_of_pressure_m (3d vector, spacecraft frame)
     center_of_mass_m     (3d vector, spacecraft frame)
@@ -49,7 +49,7 @@ def atm_density_drag_torque(
     # set version=0 for NRLMSISE-00 (standard in STK and GMAT)
     # NRLMSISE-2.1 is default version
 
-    velocity_m_per_s = np.asarray(velocity_m_per_s_eci, dtype=float)  # [m/s]
+    velocity_m_per_s = np.asarray(velocity_m_per_s, dtype=float)  # [m/s]
 
     density_kg_per_m3 = NRLMSISE[0, 0]  # mass density [kg/m^3]
 
